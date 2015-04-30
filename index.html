@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Youtube geocoder by wingmanzz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Youtube geocoder</h1>
+        <p>A simple geocoding exercise for youtube videos geotagged in nepal, since the quake</p>
+
+        <p class="view"><a href="https://github.com/wingmanzz/youtube_geocoder">View the Project on GitHub <small>wingmanzz/youtube_geocoder</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/wingmanzz/youtube_geocoder/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/wingmanzz/youtube_geocoder/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/wingmanzz/youtube_geocoder">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="youtube_geocoder" class="anchor" href="#youtube_geocoder" aria-hidden="true"><span class="octicon octicon-link"></span></a>youtube_geocoder</h1>
+
+<p>A simple geocoding exercise for youtube videos geotagged in nepal, since the quake. Since the youtube api does not report locations as lats and lons, I developed a heuristic approach, which uses search radius and 'quad trees' to refine video location.</p>
+
+<p>-- youtube_geocoder.js: a node based app to retrieve the urls</p>
+
+<p>USAGE: </p>
+
+<p>node youtube_geocode.js [text_to_find] [hours_to_sleep] [bbox_lonmin] [bbox_latmin] [bbox_lonmax] [bbox_latmax]  [minradius] [time_to_start] [apikey]</p>
+
+<p>text_to_find: text string to search for
+hours_to_sleep: hours to sleep between trying to find new videos
+bbox_lonmin: longitude min of bbox to search
+bbox_latmin: latitude min of bbox to search
+bbox_lonmax: longitude max of bbox to search
+bbox_latmax: latitude max of bbox to search
+minradius: the min  (in km) from a point radius at which we will attribute a video to a point
+time_to_start: only find videos published after this time
+apikey: the youtube apikey to use (get your own!)</p>
+
+<p>example:</p>
+
+<p>Find all the earthquake videos within the bounding box for nepal, after the event time. Attribute when our search radius &lt; 0.5 km. Sleep for 4 hours between calls to find new videos</p>
+
+<p>node youtube_geocoder.js earthquake 4 80.00 25.767 88.183 30.45 0.5 2015-04-25T06:45:00Z  AIzaSyDS4heuflAGO1bE67aZioeT3OE</p>
+
+<p>OUTPUT: a tab separated file (written to stdout via console.log) with the videos and locations.</p>
+
+<p>DEPENDENCIES: turf-distance, sync-request, array_extended node modules</p>
+
+<p>KNOWN BUGS: </p>
+
+<ul>
+<li>does no error checking on command line args and assumes they will all be present.</li>
+<li>the bounding box math/division makes no assumptions about projection</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/wingmanzz">wingmanzz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
