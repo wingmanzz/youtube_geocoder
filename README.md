@@ -1,4 +1,4 @@
-# nepal_quake_youtube
+# youtube_geocoder
 A simple geocoding exercise for youtube videos geotagged in nepal, since the quake. Since the youtube api does not report locations as lats and lons, I developed a heuristic approach, which uses search radius and 'quad trees' to refine video location.
 
 
