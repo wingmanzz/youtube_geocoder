@@ -57,7 +57,7 @@ function outputElement(item, longitude, latitude)
 		dateTime = item.snippet.publishedAt;
 		title = item.snippet.title;
 		ft = new Date();
-		console.log(id+'\t'+longitude+'\t'+latitude+'\t'+title+"\t"+videoURI+"\t"+dateTime+"\t"+ft);
+		console.log(id+','+longitude+','+latitude+',"'+title+'",'+videoURI+','+dateTime+','+ft);
 	}
 }
 
@@ -180,7 +180,7 @@ function findAllVideosBBox(lonmin,latmin,lonmax,latmax,pubDate)
 
 
 //start the app, make an initial call to get all the videos since our start time
-console.log('id\tlongitude\tlatitude\ttitle\turl\tdateTime\tfoundTime');
+console.log('id,longitude,latitude,title,url,dateTime,foundTime');
 findAllVideosBBox(lonmin,latmin,lonmax,latmax,startTime);
 
 //....now go to sleep for gHours and wakeup and find the new videos
