@@ -33,5 +33,5 @@ DEPENDENCIES: turf-distance, sync-request, array_extended node modules
 
 KNOWN BUGS: 
 
-*does no error checking on command line args and assumes they will all be present.
+* does no error checking on command line args and assumes they will all be present.
 * the bounding box math/division makes no assumptions about projection
