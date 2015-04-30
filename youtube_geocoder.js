@@ -48,16 +48,19 @@ function outputElement(item, longitude, latitude)
 	var response = request('GET',urlTemp);
 	var body = response.body.toString('utf-8');
 	var info = JSON.parse(body);
-	item = info.items[0];
-
-	if (resultsArray.indexOf(id) < 0)
+	if (info.items)
 	{
-		resultsArray.push(id);
-		videoURI = "https://www.youtube.com/watch?v="+id;
-		dateTime = item.snippet.publishedAt;
-		title = item.snippet.title;
-		ft = new Date();
-		console.log(id+','+longitude+','+latitude+',"'+title+'",'+videoURI+','+dateTime+','+ft);
+		item = info.items[0];
+
+		if (resultsArray.indexOf(id) < 0)
+		{
+			resultsArray.push(id);
+			videoURI = "https://www.youtube.com/watch?v="+id;
+			dateTime = item.snippet.publishedAt;
+			title = item.snippet.title;
+			ft = new Date();
+			console.log(id+','+longitude+','+latitude+',"'+title+'",'+videoURI+','+dateTime+','+ft);
+		}
 	}
 }
 
